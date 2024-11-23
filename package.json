@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "lint": "eslint .",
+    "link-prettier": "npx eslint . && npm run prettier-format",
     "lint:fix": "eslint . --fix",
     "prettier-format": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "start": "ts-node-dev --respawn --transpile-only server.ts",
