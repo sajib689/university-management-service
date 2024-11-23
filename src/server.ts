@@ -3,7 +3,7 @@ import config from "./config/index";
 require('dotenv').config()
 import app from './app'
 const port:number = Number(config.port)
-async function bootsrap() {
+async function bootstrap() {
     try {
         await mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.2m0rny5.mongodb.net/university-managements-service`)
         app.listen(port, () => {
@@ -13,4 +13,4 @@ async function bootsrap() {
         console.log(error);
     }
 }
-bootsrap()
+bootstrap()
