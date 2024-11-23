@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import config from "./config/index";
-require('dotenv').config()
+import dotenv from 'dotenv'
+dotenv.config()
 import app from './app'
 const port:number = Number(config.port)
 async function bootstrap() {
