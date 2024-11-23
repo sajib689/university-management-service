@@ -4,16 +4,25 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier-format": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "start": "ts-node-dev --respawn --transpile-only server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sajib hossen",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.9.1",
-    "typescript": "^5.6.3"
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "eslint": "^9.15.0",
+    "prettier": "^3.3.3",
+    "typescript": "5.6",
+    "typescript-eslint": "^8.15.0"
   },
   "dependencies": {
     "cors": "^2.8.5",
