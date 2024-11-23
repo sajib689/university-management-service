@@ -14,6 +14,13 @@
   },
   "author": "sajib hossen",
   "license": "ISC",
+  "lint-staged": {
+  "*.ts": [
+    "prettier --write",
+    "eslint --fix"
+  ]
+},
+
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "@types/cors": "^2.8.17",
