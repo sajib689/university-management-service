@@ -4,8 +4,10 @@ import { IUser } from './users.interface';
 import { User } from './users.model';
 
 const createUser = async (user: IUser): Promise<IUser | null> => {
+  //   create a new user id
   const id = await generateUserId();
   user.id = id;
+  //   create a new user password
   if (!user.password) {
     user.password = config.defaultUserPasswords as string;
   }
