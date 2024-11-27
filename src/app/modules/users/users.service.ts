@@ -1,5 +1,5 @@
 import config from '../../../config';
-import { generateUserId } from './user.utils';
+import { generateUserId } from './users.utils';
 import { IUser } from './users.interface';
 import { User } from './users.model';
 
