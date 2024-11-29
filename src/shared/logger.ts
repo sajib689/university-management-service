@@ -30,15 +30,11 @@ const logger = createLogger({
   defaultMeta: { service: 'user-service' },
   transports: [
     new transports.Console(),
-    new transports.File({
+    new DailyRotateFile({
       filename: path.join(
         process.cwd(),
-        '/logs/winston/success/phu-%DATE%.log'
+        '/logs/winston/success/phu-%DATE%-success.log'
       ),
-      level: 'info'
-    }),
-    new DailyRotateFile({
-      filename: 'application-%DATE%.log',
       datePattern: 'YYYY-MM-DD-HH',
       zippedArchive: true,
       maxSize: '20m',
@@ -54,12 +50,11 @@ const errorLogger = createLogger({
   defaultMeta: { service: 'user-service' },
   transports: [
     new transports.Console(),
-    new transports.File({
-      filename: path.join(process.cwd(), '/logs/winston/errors/phu-%DATE%.log'),
-      level: 'error'
-    }),
     new DailyRotateFile({
-      filename: 'application-%DATE%.log',
+      filename: path.join(
+        process.cwd(),
+        '/logs/winston/errors/phu-%DATE%-error.log'
+      ),
       datePattern: 'YYYY-MM-DD-HH',
       zippedArchive: true,
       maxSize: '20m',
