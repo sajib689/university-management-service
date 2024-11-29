@@ -7,6 +7,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // router
+console.log(app.get('env'));
 app.use('/api/v1/users/', usersRoute);
 // Testing server
 app.get('/', (req: Request, res: Response) => {
