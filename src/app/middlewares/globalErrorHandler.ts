@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import mongoose from 'mongoose';
 import { IGenericErrorMessage } from '../../interfaces/error';
 import handleValidationError from '../../errors/handleValidationError';
+import ApiError from '../../errors/ApiError';
 
 const globalErrorHandler = (
   err: Error,
@@ -20,6 +21,27 @@ const globalErrorHandler = (
     statusCode = 400;
     message = simplifiedError.message;
     errorMessage = simplifiedError.errorMessage;
+  } else if (err instanceof ApiError) {
+    statusCode = err.statusCode;
+    message = err.message;
+    errorMessage = err?.message
+      ? [
+          {
+            path: '',
+            message: err?.message
+          }
+        ]
+      : [];
+  } else if (err instanceof Error) {
+    message = err.message;
+    errorMessage = err.message
+      ? [
+          {
+            path: '',
+            message: err?.message
+          }
+        ]
+      : [];
   }
 
   res.status(statusCode).json({
