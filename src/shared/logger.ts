@@ -1,7 +1,7 @@
 import { createLogger, format, transports } from 'winston';
 import path from 'path';
 import { TransformableInfo } from 'logform';
-
+import DailyRotateFile from 'winston-daily-rotate-file';
 const { combine, timestamp, label, printf } = format;
 
 // Properly typed custom formatting
@@ -30,8 +30,15 @@ const logger = createLogger({
   defaultMeta: { service: 'user-service' },
   transports: [
     new transports.Console(),
-    new transports.File({
-      filename: path.join(process.cwd(), '/logs/winston/success.log')
+    new DailyRotateFile({
+      filename: path.join(
+        process.cwd(),
+        '/logs/winston/success/phu-%DATE%-success.log'
+      ),
+      datePattern: 'YYYY-MM-DD-HH',
+      zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '14d'
     })
   ]
 });
@@ -43,8 +50,15 @@ const errorLogger = createLogger({
   defaultMeta: { service: 'user-service' },
   transports: [
     new transports.Console(),
-    new transports.File({
-      filename: path.join(process.cwd(), '/logs/winston/error.log')
+    new DailyRotateFile({
+      filename: path.join(
+        process.cwd(),
+        '/logs/winston/errors/phu-%DATE%-error.log'
+      ),
+      datePattern: 'YYYY-MM-DD-HH',
+      zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '14d'
     })
   ]
 });
