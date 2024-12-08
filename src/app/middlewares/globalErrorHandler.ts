@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import { IGenericErrorMessage } from '../../interfaces/error';
 import handleValidationError from '../../errors/handleValidationError';
 import ApiError from '../../errors/ApiError';
+import config from '../../config';
+import { errorLogger } from '../../shared/logger';
 
 const globalErrorHandler = (
   err: Error,
@@ -10,6 +12,11 @@ const globalErrorHandler = (
   res: Response,
   next: NextFunction
 ) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  config.env === 'development'
+    ? console.log('Global Error Handler', err)
+    : errorLogger.error('Global Error Handler', err);
+
   let statusCode = 500;
   let message = 'Something went wrong';
   let errorMessage: IGenericErrorMessage[] = [];
