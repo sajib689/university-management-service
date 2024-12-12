@@ -5,6 +5,8 @@ import handleValidationError from '../../errors/handleValidationError';
 import ApiError from '../../errors/ApiError';
 import config from '../../config';
 import { errorLogger } from '../../shared/logger';
+import { ZodError } from 'zod';
+import handleZodError from '../../errors/handleZodError';
 
 const globalErrorHandler = (
   err: Error,
@@ -28,6 +30,18 @@ const globalErrorHandler = (
     statusCode = 400;
     message = simplifiedError.message;
     errorMessage = simplifiedError.errorMessage;
+  } else if (err instanceof ZodError) {
+    const simplifiedError = handleZodError(err);
+    statusCode = simplifiedError.statusCode;
+    message = simplifiedError.message;
+    errorMessage = simplifiedError.errorMessage
+      ? [
+          {
+            path: '',
+            message: err?.message
+          }
+        ]
+      : [];
   } else if (err instanceof ApiError) {
     statusCode = err.statusCode;
     message = err.message;
