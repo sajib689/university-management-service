@@ -8,6 +8,4 @@ const createAcademicSemester = async (
   return createdSemester;
 };
 
-export default {
-  createAcademicSemester
-};
+export default createAcademicSemester;

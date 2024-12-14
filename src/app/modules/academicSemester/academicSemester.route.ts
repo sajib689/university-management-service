@@ -1,9 +1,11 @@
 import express from 'express';
 import validateRequest from '../../middlewares/validateRequest';
 import { AcademicSemesterValidation } from './academicSemester.validation';
+import CreateSemester from './academicSemester.controller';
 const router = express.Router();
 
 router.post(
-  '',
-  validateRequest(AcademicSemesterValidation.createAcademicSemesterZodSchema)
+  '/create-academic-semester',
+  validateRequest(AcademicSemesterValidation.createAcademicSemesterZodSchema),
+  CreateSemester
 );
