@@ -9,3 +9,4 @@ router.post(
   validateRequest(AcademicSemesterValidation.createAcademicSemesterZodSchema),
   CreateSemester
 );
+export default router;

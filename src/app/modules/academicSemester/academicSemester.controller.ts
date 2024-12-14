@@ -7,7 +7,7 @@ const CreateSemester: RequestHandler = async (
   next: NextFunction
 ) => {
   try {
-    const { academicSemester } = req.body;
+    const { ...academicSemester } = req.body;
     const result = await createAcademicSemester(academicSemester);
     res.status(200).json({
       success: true,
