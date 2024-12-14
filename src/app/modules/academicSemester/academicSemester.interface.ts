@@ -1,5 +1,5 @@
 import { Model } from 'mongoose';
-type Month =
+export type Month =
   | 'January'
   | 'February'
   | 'March'

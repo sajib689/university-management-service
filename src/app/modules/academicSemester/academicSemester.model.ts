@@ -3,6 +3,7 @@ import {
   AcademicSemesterModel,
   IAcademicSemester
 } from './academicSemester.interface';
+import { academicSemesterMonths } from './academicSemester.constant';
 // Define the schema for academic semester
 const academicSemesterSchema = new Schema<IAcademicSemester>(
   {
@@ -23,38 +24,12 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
     startMonth: {
       type: String,
       required: true,
-      enum: [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-      ]
+      enum: academicSemesterMonths
     },
     endMonth: {
       type: String,
       required: true,
-      enum: [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-      ]
+      enum: academicSemesterMonths
     }
   },
   {
