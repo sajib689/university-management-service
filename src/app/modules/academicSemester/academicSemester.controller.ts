@@ -1,5 +1,5 @@
-const createAcademicSemester = async () => {};
+const CreateAcademicSemester = async () => {};
 
 export default {
-  createAcademicSemester
+  CreateAcademicSemester
 };

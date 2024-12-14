@@ -51,7 +51,7 @@ const createAcademicSemesterZodSchema = z.object({
     )
   })
 });
-export const AcademicValidation = {
+export const AcademicSemesterValidation = {
   createAcademicSemesterZodSchema
 };
 //   await createUserZodSchema.parseAsync(req);
