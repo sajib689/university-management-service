@@ -14,3 +14,9 @@ export const academicSemesterMonths: Month[] = [
   'November',
   'December'
 ];
+
+export const academicSemesterTitleCodeMapper = {
+  Autumn: '01',
+  Summer: '02',
+  Fall: '03'
+};
