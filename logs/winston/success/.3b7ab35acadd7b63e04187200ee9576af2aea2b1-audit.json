@@ -19,6 +19,21 @@
             "date": 1734169888319,
             "name": "D:\\Job-Projects\\university-management-service\\logs\\winston\\success\\phu-2024-12-14-15-success.log",
             "hash": "f1e94200888c87cebc51f50e0d303db2ae6c9736cda497cdf5c6fa795319d0ae"
+        },
+        {
+            "date": 1734174310012,
+            "name": "D:\\Job-Projects\\university-management-service\\logs\\winston\\success\\phu-2024-12-14-17-success.log",
+            "hash": "431c9434746c1eac7e1a2330d9a6d61c39dad49b0183b057d8a2789b4cc736b0"
+        },
+        {
+            "date": 1734180955350,
+            "name": "D:\\Job-Projects\\university-management-service\\logs\\winston\\success\\phu-2024-12-14-18-success.log",
+            "hash": "06b78945f3bce34d66b9c95c5e317be33bb6d95f1e96413d2d4f75b72b307be3"
+        },
+        {
+            "date": 1734182731205,
+            "name": "D:\\Job-Projects\\university-management-service\\logs\\winston\\success\\phu-2024-12-14-19-success.log",
+            "hash": "517e1aeefa5fd8438a850260f862e9506177e5d50bb7c4c0d4c32a9b854755c0"
         }
     ],
     "hashType": "sha256"

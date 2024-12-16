@@ -4,6 +4,8 @@ import {
   IAcademicSemester
 } from './academicSemester.interface';
 import { academicSemesterMonths } from './academicSemester.constant';
+import ApiError from '../../../errors/ApiError';
+import status from 'http-status';
 // Define the schema for academic semester
 const academicSemesterSchema = new Schema<IAcademicSemester>(
   {
@@ -37,7 +39,20 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
     timestamps: true
   }
 );
+academicSemesterSchema.pre('save', async function (next) {
+  const isExit = await AcademicSemester.findOne({
+    title: this.title,
+    year: Number(this.year)
+  });
+  if (isExit) {
+    throw new ApiError(
+      status.CONFLICT as number,
+      'Academic Semester already exists'
+    );
+  }
 
+  next();
+});
 // Create the model using both the document type and the model type
 export const AcademicSemester: AcademicSemesterModel = model<
   IAcademicSemester,
