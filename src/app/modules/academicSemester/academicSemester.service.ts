@@ -10,7 +10,7 @@ const createAcademicSemester = async (
     academicSemesterTitleCodeMapper[academicSemester.title] !==
     academicSemester.code
   ) {
-    throw new ApiError(400, 'Invalid Semester Code');
+    throw new ApiError(400, 'Invalid Semester');
   }
   const createdSemester = await AcademicSemester.create(academicSemester);
   return createdSemester;
