@@ -34,6 +34,11 @@
             "date": 1734182731205,
             "name": "D:\\Job-Projects\\university-management-service\\logs\\winston\\success\\phu-2024-12-14-19-success.log",
             "hash": "517e1aeefa5fd8438a850260f862e9506177e5d50bb7c4c0d4c32a9b854755c0"
+        },
+        {
+            "date": 1734331086511,
+            "name": "D:\\Job-Projects\\university-management-service\\logs\\winston\\success\\phu-2024-12-16-12-success.log",
+            "hash": "1d7d1df4f42220c262869f255f336e68e2236ef51b49cd4ec60b04e7df14dd38"
         }
     ],
     "hashType": "sha256"
