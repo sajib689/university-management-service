@@ -7,7 +7,6 @@ const CreateSemester = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const { ...academicSemester } = req.body;
     const result = await createAcademicSemester(academicSemester);
-    next();
 
     sendResponse(res, {
       statusCode: 200,
@@ -15,6 +14,7 @@ const CreateSemester = catchAsync(
       message: 'Academic Semester created successfully',
       data: result
     });
+    next();
   }
 );
 
