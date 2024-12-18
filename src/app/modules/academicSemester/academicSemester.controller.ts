@@ -31,7 +31,8 @@ export const getAllSemesters = catchAsync(
       statusCode: 200,
       success: true,
       message: 'Semester retrieved successfully',
-      data: result.data
+      data: result.data,
+      meta: result.meta
     });
     next();
   }
