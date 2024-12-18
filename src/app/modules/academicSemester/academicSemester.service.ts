@@ -1,4 +1,5 @@
 import ApiError from '../../../errors/ApiError';
+import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { academicSemesterTitleCodeMapper } from './academicSemester.constant';
 import { IAcademicSemester } from './academicSemester.interface';
@@ -16,15 +17,6 @@ const createAcademicSemester = async (
   }
   const createdSemester = await AcademicSemester.create(academicSemester);
   return createdSemester;
-};
-
-type IGenericResponse<T> = {
-  meta: {
-    page: number;
-    limit: number;
-    total: number;
-  };
-  data: T;
 };
 
 // semesters service methods
