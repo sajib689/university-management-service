@@ -1,4 +1,5 @@
 import ApiError from '../../../errors/ApiError';
+import calculatePagination from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { academicSemesterTitleCodeMapper } from './academicSemester.constant';
@@ -23,8 +24,8 @@ const createAcademicSemester = async (
 export const getAllSemester = async (
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IAcademicSemester[]>> => {
-  const { page = 1, limit = 10 } = paginationOptions;
-  const skip = (page - 1) * limit;
+  const { page, limit, skip } = calculatePagination(paginationOptions);
+
   const result = await AcademicSemester.find().sort().skip(skip).limit(limit);
   const total = await AcademicSemester.countDocuments();
   return {
